@@ -9,14 +9,27 @@ import org.junit.jupiter.api.Test;
 public class ProfissionalTest {
 
     @Test
-    void exemploEstruturaAaa() {
+    void testaAdicionarAulasAcimaMaximo() {
         // Arrange
         Personal personal = new Personal("Ana", "P001");
         // Act — troque/complete conforme a classe escolhida
-        double aulas = personal.addAulaAvulsa(1.0);
+        double aulas = personal.addAulaAvulsa(31.0);
         // Assert
-        assertEquals(0.0, aulas, 0.001,
-                "este exemplo só ilustra AAA; substitua pelos seus 2 testes");
+        assertEquals(30.0, aulas, 0.001,
+                "Esse teste verifica se não permite adicionar aulas acima do máximo");
+    }
+
+    @Test
+    void testaRegistroPagamento() {
+        // Arrange
+        Personal personal = new Personal("Ana", "P001");
+        // Act — troque/complete conforme a classe escolhida
+        personal.addAulaAvulsa(10.0);
+        double pagamento = personal.registrarPagamento();
+
+        // Assert
+        assertEquals(4231.5, pagamento, 0.001,
+                "Esse teste verifica o registro do pagamento");
     }
 
     // TODO: criar 2 testes unitários (AAA + mensagem na asserção)
